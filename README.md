@@ -1,4 +1,4 @@
-# wls-gothamlane — single page app
+# wls-infinite
 
 ```
 bower install angular-ui-router
