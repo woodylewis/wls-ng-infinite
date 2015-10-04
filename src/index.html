@@ -31,6 +31,7 @@
           </div>    
         </div>
     </div>
+  <!--
     <div class="row">
       <div class="twelve columns">
         <div class="wls-button-panel">
@@ -42,21 +43,15 @@
       </div> 
     </div>
   </div>
-
+  -->
   <div ng-controller="mainCtrl" ng-cloak>
-      <div infinite-scroll='reddit.nextPage()' infinite-scroll-disabled='reddit.busy' infinite-scroll-distance='1'>
-    <div ng-repeat='item in reddit.items'>
-      <span class='score'>{{item.score}}</span>
-      <span class='title'>
-        <a ng-href='{{item.url}}' target='_blank'>{{item.title}}</a>
-      </span>
-      <small>by {{item.author}} -
-        <a ng-href='http://reddit.com{{item.permalink}}' target='_blank'>{{item.num_comments}} comments</a>
-      </small>
-      <div style='clear: both;'></div>
+    <div infinite-scroll='nextNarrations()' infinite-scroll-disabled='busy' infinite-scroll-distance='1'>
+      <div ng-repeat='item in items'>
+        {{item.title}}
+        <div style='clear: both;'></div>
+      </div>
+      <div ng-show='busy'>Loading data...</div>
     </div>
-    <div ng-show='reddit.busy'>Loading data...</div>
-  </div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -66,15 +61,6 @@
   <script src="js/controllers/mainCtrl.js"></script>
   <script src="js/services/narrationService.js"></script>
   <footer>
-    <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-61031743-1', 'auto');
-    ga('require', 'displayfeatures');
-    ga('send', 'pageview');
-  </script>
   </footer>
 </body>
 </html>

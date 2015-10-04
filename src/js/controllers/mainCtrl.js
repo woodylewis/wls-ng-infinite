@@ -5,15 +5,9 @@ angular.module('gothamlane.mainCtrl', [
 ])
 .controller('mainCtrl', ['$scope', 'narrationService', 'Reddit', function($scope, narrationService, Reddit) {
   $scope.reddit = new Reddit();
-  narrationService.fetchNarrations()
-  .then(function (narrations) {
-    $scope.narrations = narrations;
-    //$state.go('main');
-  }), function(error) {
-      var errStr = 'fetchNarrations error';
-      console.log(errStr + error);
-  };
-
+  $scope.items = [];
+  $scope.busy = false;
+  
   $scope.showCurrentNarration = function(_id) {
     narrationService.fetchCurrentNarration(_id)
     .then(function(data) {
@@ -21,6 +15,25 @@ angular.module('gothamlane.mainCtrl', [
       //$state.go('narration');
     }), function(error) {
       console.log('show narration error');
+    };
+  };
+
+  $scope.nextNarrations = function() {
+    if($scope.busy) {
+      return;
+    }
+    $scope.busy = true;
+
+    narrationService.fetchNarrations()
+    .then(function (narrations) {
+      for(var i=0; i < narrations.length; i++) {
+        $scope.items.push(narrations[i]);
+      }
+      $scope.busy = false;
+      //$state.go('main');
+    }), function(error) {
+        var errStr = 'fetchNarrations error';
+        console.log(errStr + error);
     };
   };
 
