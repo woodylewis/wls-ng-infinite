@@ -1,7 +1,6 @@
 'use strict';
 
 angular.module('gothamlane.narrationService', [])
-/* SERVICE TO WRAP HTTP REQUESTS */
 .factory('narrationService' , ['$q', '$http', 
 	function($q, $http) {
 		var narrationUrl = 'http://gothamlane.net:7100/narrations/';
