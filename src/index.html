@@ -45,12 +45,12 @@
   </div>
   -->
   <div ng-controller="mainCtrl" ng-cloak>
-    <div infinite-scroll='narrationEngine.nextNarrations()' infinite-scroll-disabled='busy' infinite-scroll-distance='1'>
-      <div ng-repeat='item in narrationEngine.items'>
+    <div infinite-scroll='ne.nextNarrations()' infinite-scroll-disabled='busy' infinite-scroll-distance='1'>
+      <div ng-repeat='item in ne.items'>
         {{item.title}}
         <div style='clear: both;'></div>
       </div>
-      <div ng-show='narrationEngine.busy'>Loading data...</div>
+      <div ng-show='ne.busy'>Loading data...</div>
     </div>
   </div>
 
