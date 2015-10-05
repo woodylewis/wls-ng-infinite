@@ -5,7 +5,8 @@ angular.module('gothamlane.narrationService', [])
 	function($q, $http) {
 		//var narrationUrl = 'http://gothamlane.net:7100/narrations/';
 		var narrationUrl = 'http://localhost:7100/narrations/';
-		var narrationPageUrl = 'http://localhost:7100/narration-page/';
+		//var narrationPageUrl = 'http://localhost:7100/narration-page/';
+		var narrationPageUrl = 'http://gothamlane.net:7100/narration-page/';
 
 		var fetchNarrations = function() {
 			var deferred = $q.defer();

@@ -1,10 +1,6 @@
-<div class="container">
-  <div ng-repeat="narration in narrations">
-    <div class="row">
-      <div class="twelve-columns">
-        <div class="wls-row" data-ng-click="showCurrentNarration(narration._id)">{{narration.title}}</div>
-        </div>
-      </div>
-    </div>
+<div infinite-scroll='ne.nextNarrations()' infinite-scroll-disabled='busy' infinite-scroll-distance='1'>
+  <div ng-repeat="item in ne.items">
+    <span ng-bind="item.title"></span>
   </div>
+  <div ng-show='ne.busy'>Loading data...</div>
 </div>
