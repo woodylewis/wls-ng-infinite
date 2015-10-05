@@ -1,6 +1,8 @@
-<div infinite-scroll='ne.nextNarrations()' infinite-scroll-disabled='busy' infinite-scroll-distance='1'>
-  <div ng-repeat="item in ne.items">
-    <span ng-bind="item.title"></span>
-  </div>
-  <div ng-show='ne.busy'>Loading data...</div>
+<div class="container">
+	<div infinite-scroll='ne.nextNarrations()' infinite-scroll-disabled='busy' infinite-scroll-distance='1'>
+	  <div ng-repeat="item in ne.items">
+	    <span ng-bind="item.title"></span>
+	  </div>
+	  <div ng-show='ne.busy'>Loading data...</div>
+	</div>
 </div>
