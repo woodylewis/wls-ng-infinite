@@ -5,7 +5,8 @@ angular.module('gothamlane.narrationEngine', [
 ])
 .factory('NarrationEngine', ['narrationService', function(narrationService) {
   var NarrationEngine = function() {
-    this.items = [];
+    this.narrations = [];
+    this.cn = '';
     this.busy = false;
     this.ns = narrationService;
     this.id = 'n';
@@ -18,11 +19,10 @@ angular.module('gothamlane.narrationEngine', [
     this.ns.fetchNarrationPage(this.id)
     .then(function (narrations) {
       for(var i=0; i < narrations.length; i++) {
-        this.items.push(narrations[i]);
+        this.narrations.push(narrations[i]);
       }
       this.busy = false;
       this.id = narrations[narrations.length - 1]._id;
-      //$state.go('main');
     }.bind(this));
   };
 
