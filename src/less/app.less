@@ -1,8 +1,17 @@
 @bp-small-mobile : 375px;
 @bp-larger-than-small-mobile : 400px;
 @black: #000000;
+@white: #ffffff;
+@instagram: #01497a;
+@facebook: #47639e;
+@royalblue: #4173dd;
 
 .home-link, .wls-click, .wls-row, .nav a { cursor: pointer; }
+
+.home-link {
+    color:@royalblue;
+    background-color:@white;
+}
 
 header {
     font-family: 'Cinzel' serif; 
@@ -52,7 +61,8 @@ img {
 
 .wls-row {
     border:1px grey dotted;
-    max-width:40%;
+    max-width:80%;
+    height:4em;
     margin-left:auto;
     margin-right:auto;
     margin-bottom:1em;

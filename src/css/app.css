@@ -4,6 +4,10 @@
 .nav a {
   cursor: pointer;
 }
+.home-link {
+  color: #4173dd;
+  background-color: #ffffff;
+}
 header {
   font-family: 'Cinzel' serif;
   font-size: 200%;
@@ -48,7 +52,8 @@ img {
 }
 .wls-row {
   border: 1px grey dotted;
-  max-width: 40%;
+  max-width: 80%;
+  height: 4em;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 1em;
