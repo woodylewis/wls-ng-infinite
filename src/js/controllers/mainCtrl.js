@@ -8,9 +8,8 @@ angular.module('gothamlane.mainCtrl', [
   $scope.ne = new NarrationEngine();
   $state.go('main');
 
-  $scope.showCurrentNarration = function(_id) {
-  	//--- Need access to the promise in NarrationService ------
-  	return $scope.ne.ns.fetchCurrentNarration(_id)
+  $scope.showCurrentNarration = function(id) {
+  	$scope.ne.fetchCurrentNarration(id)
     .then(function (cn) {
     	$scope.currentNarration = cn;
     	$state.go('narration');

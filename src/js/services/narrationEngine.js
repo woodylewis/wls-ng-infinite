@@ -1,22 +1,21 @@
 'use strict';
 
-angular.module('gothamlane.narrationEngine', [
-  'gothamlane.narrationService'
-])
-.factory('NarrationEngine', ['narrationService', function(narrationService) {
+angular.module('gothamlane.narrationEngine', [])
+.factory('NarrationEngine', ['$q', '$http', function($q, $http) {
+
   var NarrationEngine = function() {
     this.narrations = [];
-    this.cn = '';
     this.busy = false;
-    this.ns = narrationService;
     this.id = 'n';
+    this.narrationUrl = 'http://gothamlane.net:7100/narrations/';
+    this.narrationPageUrl = 'http://gothamlane.net:7100/narration-page/';
   };
 
   NarrationEngine.prototype.nextNarrations = function() {
     if(this.busy) return;
     this.busy = true;
 
-    this.ns.fetchNarrationPage(this.id)
+    this.fetchNarrationPage(this.id)
     .then(function (narrations) {
       for(var i=0; i < narrations.length; i++) {
         this.narrations.push(narrations[i]);
@@ -24,6 +23,30 @@ angular.module('gothamlane.narrationEngine', [
       this.busy = false;
       this.id = narrations[narrations.length - 1]._id;
     }.bind(this));
+  };
+
+  NarrationEngine.prototype.fetchNarrationPage = function(id) {
+      var deferred = $q.defer();
+      $http.get(this.narrationPageUrl + id)
+      .success( function(data) {
+        deferred.resolve(data);
+      })
+      .error(function(reason) {
+        deferred.reject(reason);
+      });
+      return deferred.promise;
+  };
+
+  NarrationEngine.prototype.fetchCurrentNarration = function(id) {
+      var deferred = $q.defer();
+      $http.get(this.narrationUrl + id)
+      .success(function(data) {
+        deferred.resolve(data);
+      })
+      .error(function(reason) {
+        deferred.reject(reason);
+      });
+      return deferred.promise;
   };
 
   return NarrationEngine;
