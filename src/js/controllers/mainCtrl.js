@@ -13,6 +13,8 @@ angular.module('gothamlane.mainCtrl', [
     .then(function (cn) {
     	$scope.currentNarration = cn;
     	$state.go('narration');
-    });
+    }), function (error) {
+      console.log('showCurrentNarration error');
+    };
   };
 }]);

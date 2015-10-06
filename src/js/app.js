@@ -18,7 +18,6 @@ angular.module('gothamlane', [
         "state" : { 
                     templateUrl: "partials/narration.html",
                     controller: function($scope, $sce, $location, $anchorScroll) {
-          console.log($scope.$parent.currentNarration);
                       $scope.markup = $sce.trustAsHtml($scope.$parent.currentNarration.body);
                       $scope.title = $scope.$parent.currentNarration.title;
                       $scope.date = $scope.$parent.currentNarration.date;
