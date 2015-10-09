@@ -20,8 +20,8 @@ angular.module('gothamlane.mainCtrl', [
                     controller: function($scope, $sce, $anchorScroll, $location) {
                       $scope.$parent.markup = $sce.trustAsHtml($scope.$parent.cn.body);
                       $location.url($scope.$parent.cn.url);
-                      $location.hash('top');
-                      $anchorScroll();
+                      //$location.hash('top');
+                      //$anchorScroll();
                     }
             }
         }
