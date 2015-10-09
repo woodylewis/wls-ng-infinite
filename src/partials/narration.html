@@ -1,9 +1,9 @@
 <div class="container">
     <div class="row">
       <div class="u-pull-left">
-        <b>{{title}}</b>
-        <p>{{date | date: 'longDate'}}
-        <div ng-switch on="category">
+        <b>{{cn.title}}</b>&nbsp;&nbsp;{{cn.url}}
+        <p>{{cn.date | date: 'longDate'}}
+        <div ng-switch on="cn.category">
           <div ng-switch-when="metro" >
             <i class="fa fa-building-o fa-lg wls-icon "></i>
           </div>

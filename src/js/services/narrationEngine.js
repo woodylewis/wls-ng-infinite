@@ -36,7 +36,7 @@ angular.module('gothamlane.narrationEngine', [])
       });
       return deferred.promise;
   };
-
+/*
   NarrationEngine.prototype.fetchCurrentNarration = function(id) {
       var deferred = $q.defer();
       $http.get(this.narrationUrl + id)
@@ -48,6 +48,6 @@ angular.module('gothamlane.narrationEngine', [])
       });
       return deferred.promise;
   };
-
+*/
   return NarrationEngine;
 }]);

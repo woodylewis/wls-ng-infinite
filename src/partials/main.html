@@ -3,11 +3,12 @@
 	  <div ng-repeat="narration in ne.narrations">
 	  	<div class="row">
 	      <div class="twelve-columns">
-	        <div class="wls-row" ng-bind="narration.title" data-ng-click="showCurrentNarration(narration._id)"></div>
+	        <div class="wls-row" ng-bind="narration.title" data-ng-click="fetchNarration(narration._id)"></div>
 	      </div>
       	</div>
-	    <span ></span>
 	  </div>
-	  <div ng-show='ne.busy'>Loading data...</div>
+	  <div ng-show='ne.busy'>
+        <i class="fa fa-cloud-download fa-lg"></i>
+	  </div>
 	</div>
 </div>
