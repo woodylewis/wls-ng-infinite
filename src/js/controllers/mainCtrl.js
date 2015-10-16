@@ -1,18 +1,21 @@
 'use strict';
 
-angular.module('gothamlane.mainCtrl', [
+angular
+.module('gothamlane.mainCtrl', [
   'infinite-scroll',
   'gothamlane.narrationEngine'
 ])
-.controller('mainCtrl', ['$scope', '$state', '$sce', '$location', '$anchorScroll', '$filter', 'NarrationEngine', 
-  function($scope, $state, $sce, $location, $anchorScroll, $filter, NarrationEngine) {
-    $scope.ne = new NarrationEngine();
-    $scope.cn = {};
-    $state.go('main');
+.controller('MainCtrl', MainCtrl);
 
-    $scope.fetchNarration = function(theID) {
-      var filtered = $filter('filter')($scope.ne.narrations, {_id: theID});
-      $scope.cn = filtered[0];
-      $state.go('narration');
-    };
-}]);
+function MainCtrl($scope, $state, $filter, NarrationEngine) {
+  var vm = this;
+  vm.ne = new NarrationEngine();
+  vm.cn = {};
+  $state.go('main');
+
+  vm.fetchNarration = function(theID) {
+    var filtered = $filter('filter')(vm.ne.narrations, {_id: theID});
+    vm.cn = filtered[0];
+    $state.go('narration');
+  };
+}

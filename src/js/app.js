@@ -25,7 +25,7 @@ angular.module('gothamlane', [
                     templateUrl: "partials/narration.html" ,
                     controller: function($scope, $sce, $anchorScroll, $location) {
                       $scope.$parent.markup = $sce.trustAsHtml($scope.$parent.cn.body);
-                      $location.url($scope.$parent.cn.url);
+                      $location.url('narration/' + $scope.$parent.cn.url);
                       //$location.hash('top');
                       //$anchorScroll();
                     }
