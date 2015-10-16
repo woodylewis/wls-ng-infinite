@@ -1,8 +1,8 @@
 <div class="container">
     <div class="row">
       <div class="u-pull-left">
-        <b>{{cn.title}}</b>&nbsp;<div data-ng-click="fetchUrl">URL</div>
-        <p>{{cn.date | date: 'longDate'}}
+        <b>{{ctl.cn.title}}</b>&nbsp;<div data-ng-click="ctl.fetchUrl(ctl.cn.url)">URL</div>
+        <p>{{ctl.cn.date | date: 'longDate'}}
         <div ng-switch on="cn.category">
           <div ng-switch-when="metro" >
             <i class="fa fa-building-o fa-lg wls-icon "></i>

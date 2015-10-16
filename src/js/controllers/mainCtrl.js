@@ -18,4 +18,8 @@ function MainCtrl($scope, $state, $filter, NarrationEngine) {
     vm.cn = filtered[0];
     $state.go('narration');
   };
+
+  vm.fetchUrl = function() {
+    console.log('fetchUrl');
+  };
 }
