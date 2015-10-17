@@ -29,14 +29,14 @@ angular.module('gothamlane', [
       views: {
         "state" : { 
                     templateUrl: "partials/narration.html" ,
-                    controller: function ($scope, $stateParams) {
+                    controller: function ($scope) {
+                      //$scope.$emit('referral');
                       if($scope.$parent.ctl.click === true) {
                         $scope.$parent.ctl.click = false;
-                        console.log('VM CLICK - ', $scope.$parent.ctl.click);
-                        return;
                       }
                       else {
-                        console.log('NO CLICK');
+                        $scope.$emit('referral');
+                        //$scope.$parent.ctl.fetchUrl();
                       }
                     }
               }

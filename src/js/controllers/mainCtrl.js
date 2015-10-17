@@ -13,15 +13,19 @@ function MainCtrl($scope, $state, $filter, $location, $sce, NarrationEngine) {
   vm.cn = {};
   vm.click = false;
 
+  $scope.$on('referral', function(event, args) {
+    console.log('CAUGHT REFERRAL');
+  });
+
   $state.go('main');
 
   vm.fetchNarration = function(theID) {
     var filtered = $filter('filter')(vm.ne.narrations, {_id: theID});
     vm.cn = filtered[0];
-    vm.click = true;
     vm.markup = $sce.trustAsHtml(vm.cn.body);
-    $location.url('narration/' + vm.cn.url);
+    vm.click = true;
     $state.go('narration');
+    $location.url('narration/' + vm.cn.url);
   };
 
   vm.fetchUrl = function() {
