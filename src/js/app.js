@@ -21,32 +21,27 @@ angular.module('gothamlane', [
     .state('narration', {
       url: "/narration",
       views: {
-        "state" : { 
-                    templateUrl: "partials/narration.html" ,
-                    controller: function($scope, $sce, $anchorScroll, $location) {
-                      console.log('child controller', $scope.$parent);
-                      //$scope.$parent.markup = $sce.trustAsHtml($scope.$parent.cn.body);
-                      //$location.url('narration/' + $scope.$parent.cn.url);
-                      //$location.hash('top');
-                      //$anchorScroll();
-                    }
-            }
-        }
+        "state" : { templateUrl: "partials/narration.html" }
+      }
     })
-    /*
     .state('referral', {
-      url: "/:narrationUrl",
+      url: "/narration/:narrationUrl",
       views: {
         "state" : { 
                     templateUrl: "partials/narration.html" ,
-                    controller: function ($scope, $filter, $stateParams) {
-                    var filtered = $filter('filter')($scope.posts, {url: $stateParams.narrationUrl});
-                    console.log('IN REFERRAL STATE CONTROLLER');
-                    $scope.parent.cn = filtered[0];
+                    controller: function ($scope, $stateParams) {
+                      if($scope.$parent.ctl.click === true) {
+                        $scope.$parent.ctl.click = false;
+                        console.log('VM CLICK - ', $scope.$parent.ctl.click);
+                        return;
+                      }
+                      else {
+                        console.log('NO CLICK');
+                      }
                     }
               }
         }
-    })*/;
+    });
 }])
 .controller('appCtrl', ['$scope', '$state', function($scope, $state) {
   $scope.goHome = function () {
