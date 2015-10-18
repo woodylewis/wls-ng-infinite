@@ -14,7 +14,12 @@ function MainCtrl($scope, $state, $filter, $location, $sce, NarrationEngine) {
   vm.click = false;
 
   $scope.$on('referral', function(event, args) {
-    console.log('CAUGHT REFERRAL');
+    if(vm.click === true) {
+      vm.click = false;
+    }
+    else {
+      vm.fetchUrl(args);
+    }
   });
 
   $state.go('main');
@@ -24,11 +29,14 @@ function MainCtrl($scope, $state, $filter, $location, $sce, NarrationEngine) {
     vm.cn = filtered[0];
     vm.markup = $sce.trustAsHtml(vm.cn.body);
     vm.click = true;
-    $state.go('narration');
-    $location.url('narration/' + vm.cn.url);
+    $location.url('/narration/' + vm.cn.url);
   };
 
-  vm.fetchUrl = function() {
-    console.log('fetchUrl');
+  vm.fetchUrl = function(args) {
+    console.log('fetchUrl ', args);
+    vm.ne.fetchCurrentNarration(args)
+    .then(function (data) {
+      console.log('NARRATION ', data);
+    });
   };
 }

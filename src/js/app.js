@@ -18,26 +18,13 @@ angular.module('gothamlane', [
         "state" : { templateUrl: "partials/main.html" }
       }
     })
-    .state('narration', {
-      url: "/narration",
-      views: {
-        "state" : { templateUrl: "partials/narration.html" }
-      }
-    })
     .state('referral', {
       url: "/narration/:narrationUrl",
       views: {
         "state" : { 
                     templateUrl: "partials/narration.html" ,
-                    controller: function ($scope) {
-                      //$scope.$emit('referral');
-                      if($scope.$parent.ctl.click === true) {
-                        $scope.$parent.ctl.click = false;
-                      }
-                      else {
-                        $scope.$emit('referral');
-                        //$scope.$parent.ctl.fetchUrl();
-                      }
+                    controller: function ($scope, $stateParams) {
+                        $scope.$emit('referral', $stateParams.narrationUrl);
                     }
               }
         }
