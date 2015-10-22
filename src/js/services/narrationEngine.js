@@ -7,7 +7,6 @@ angular.module('gothamlane.narrationEngine', [])
     this.narrations = [];
     this.busy = false;
     this.id = 'n';
-    this.narrationUrl = 'http://gothamlane.net:7100/narrations/';
     this.narrationPageUrl = 'http://gothamlane.net:7100/narration-page/';
     this.narrationReferralUrl = 'http://gothamlane.net:7100/narration/';
   };
@@ -37,9 +36,9 @@ angular.module('gothamlane.narrationEngine', [])
       });
       return deferred.promise;
   };
-  NarrationEngine.prototype.fetchCurrentNarration = function(id) {
+  NarrationEngine.prototype.fetchNarrationUrl = function(url) {
       var deferred = $q.defer();
-      $http.get(this.narrationUrl + id)
+      $http.get(this.narrationReferralUrl + url)
       .success(function(data) {
         deferred.resolve(data);
       })

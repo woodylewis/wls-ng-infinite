@@ -22,21 +22,23 @@ function MainCtrl($scope, $state, $filter, $location, $sce, NarrationEngine) {
     }
   });
 
-  $state.go('main');
+  function trustMarkup() {
+    vm.markup = $sce.trustAsHtml(vm.cn.body);
+  }
 
   vm.fetchNarration = function(theID) {
     var filtered = $filter('filter')(vm.ne.narrations, {_id: theID});
     vm.cn = filtered[0];
-    vm.markup = $sce.trustAsHtml(vm.cn.body);
+    trustMarkup();
     vm.click = true;
     $location.url('/narration/' + vm.cn.url);
   };
 
-  vm.fetchUrl = function(args) {
-    console.log('fetchUrl ', args);
-    vm.ne.fetchCurrentNarration(args)
+  vm.fetchUrl = function(theUrl) {
+    vm.ne.fetchNarrationUrl(theUrl)
     .then(function (data) {
-      console.log('NARRATION ', data);
+      vm.cn = data[0];
+      trustMarkup();
     });
   };
 }

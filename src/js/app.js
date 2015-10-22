@@ -30,6 +30,9 @@ angular.module('gothamlane', [
         }
     });
 }])
+.run(['$state', function($state) {
+  $state.go('main');
+}])
 .controller('appCtrl', ['$scope', '$state', function($scope, $state) {
   $scope.goHome = function () {
     $state.go('main');
