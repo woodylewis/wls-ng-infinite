@@ -1,7 +1,9 @@
 .home-link,
 .wls-click,
 .wls-row,
-.nav a {
+.wls-row-container,
+.nav,
+a {
   cursor: pointer;
 }
 .home-link {
@@ -9,9 +11,9 @@
   background-color: #ffffff;
 }
 header {
-  font-family: 'Cinzel' serif;
-  font-size: 200%;
-  font-weight: 700;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 250%;
+  font-weight: 200;
   text-align: center;
   color: #000000;
   margin-top: .2em;
@@ -38,27 +40,47 @@ img {
 .wls-icon {
   color: #000000;
 }
+.wls-row-icon {
+  color: #ffffff;
+  padding: 1em;
+}
 @media (max-width: 375px) {
-  .wls-icon {
+  .wls-icon,
+  .wls-row-icon {
     margin-right: .5em;
     margin-left: .5em;
   }
 }
 @media (min-width: 400px) {
-  .wls-icon {
+  .wls-icon,
+  .wls-row-icon {
     margin-right: 1em;
     margin-left: 1em;
   }
 }
 .wls-row {
-  border: 1px grey dotted;
+  text-align: center;
+}
+.wls-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.wls-narration-row {
+  color: #ffffff;
+  background-color: #4173dd;
+  font-size: 150%;
   max-width: 80%;
   height: 4em;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 1em;
   margin-bottom: 1em;
   text-align: left;
-  padding-left: 10%;
+  -moz-border-radius: 2em;
+  -webkit-border-radius: 2em;
+  border-radius: 2em;
+  padding: 2em;
 }
 .wls-narration {
   margin-top: 1em;

@@ -13,7 +13,7 @@ angular.module('gothamlane', [
 
   $stateProvider
     .state('main', {
-      url: "/main",
+      url: "/",
       views: {
         "state" : { templateUrl: "partials/main.html" }
       }
