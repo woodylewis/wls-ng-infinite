@@ -1,6 +1,7 @@
 .home-link,
 .wls-click,
 .wls-row,
+.wls-narration-row,
 .wls-row-container,
 .nav,
 a {
@@ -41,19 +42,21 @@ img {
   color: #000000;
 }
 .wls-row-icon {
+  position: relative;
+  display: block;
   color: #ffffff;
-  padding: 1em;
+  z-index: 99;
+  margin-top: .5em;
+  margin-left: .5em;
 }
 @media (max-width: 375px) {
-  .wls-icon,
-  .wls-row-icon {
+  .wls-icon {
     margin-right: .5em;
     margin-left: .5em;
   }
 }
 @media (min-width: 400px) {
-  .wls-icon,
-  .wls-row-icon {
+  .wls-icon {
     margin-right: 1em;
     margin-left: 1em;
   }
@@ -69,18 +72,21 @@ img {
 .wls-narration-row {
   color: #ffffff;
   background-color: #4173dd;
-  font-size: 150%;
-  max-width: 80%;
-  height: 4em;
+  opacity: 0.8;
+  font-size: 125%;
+  font-weight: normal;
+  max-width: 50%;
+  height: 3em;
   margin-left: auto;
   margin-right: auto;
   margin-top: 1em;
-  margin-bottom: 1em;
-  text-align: left;
-  -moz-border-radius: 2em;
-  -webkit-border-radius: 2em;
-  border-radius: 2em;
-  padding: 2em;
+  margin-bottom: 0;
+  -moz-border-radius: 1em;
+  -webkit-border-radius: 1em;
+  border-radius: 1em;
+  border: .2em solid grey;
+  padding: .2em .5em 0 .5em;
+  z-index: -1;
 }
 .wls-narration {
   margin-top: 1em;

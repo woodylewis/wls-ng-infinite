@@ -1,30 +1,28 @@
 <div class="container">
 	<div infinite-scroll='ctl.ne.nextNarrations()' infinite-scroll-disabled='busy' infinite-scroll-distance='1'>
 	  	<div ng-repeat="narration in ctl.ne.narrations">
-	  		<div class="wls-row">
-		        	<div class="one-third column u-pull-left" data-ng-click="ctl.fetchNarration(narration._id)">
-			        	<div ng-switch on="narration.category">
+	  		<div class="row">
+      			<div class="wls-narration-row" data-ng-click="ctl.fetchNarration(narration._id)">
+			        	<div ng-switch on="narration.category" class="u-pull-left">
 				          <div ng-switch-when="metro">
-				            <i class="fa fa-building-o fa-2x wls-row-icon "></i>
+				            <i class="fa fa-building-o fa-lg wls-row-icon"></i>
 				          </div>
 				          <div ng-switch-when="business">
-				            <i class="fa fa-bar-chart fa-2x wls-row-icon"></i>
+				            <i class="fa fa-bar-chart fa-lg wls-row-icon"></i>
 				          </div>
 				          <div ng-switch-when="books">
-				            <i class="fa fa-book fa-2x wls-row-icon"></i>
+				            <i class="fa fa-book fa-lg wls-row-icon"></i>
 				          </div>
 				          <div ng-switch-when="ideas">
-				            <i class="fa fa-lightbulb-o fa-2x wls-row-icon"></i>
+				            <i class="fa fa-lightbulb-o fa-lg wls-row-icon"></i>
 				          </div>
 		        		</div>
-	        		</div>
-	      		<div class="wls-narration-row" ng-bind="narration.title" data-ng-click="ctl.fetchNarration(narration._id)">
-        		</div>
-	     	</div><!-- wls-row -->
+		        		<div ng-bind="narration.title" class="u-pull-right"></div>
+	        	</div><!-- wls-narration-row -->
+	     	</div>
     	</div>
 	</div>
 	  <div ng-show='ne.busy'>
         <i class="fa fa-cloud-download fa-lg"></i>
 	  </div>
-	</div>
 </div>
