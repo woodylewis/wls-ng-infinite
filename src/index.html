@@ -26,6 +26,21 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ngInfiniteScroll/1.2.1/ng-infinite-scroll.min.js"></script>
+  <!--
+  <script src="https://maps.googleapis.com/maps/api/js"></script>
+  <script>
+      function initialize() {
+        var mapCanvas = document.getElementById('map');
+        var mapOptions = {
+          center: new google.maps.LatLng(40.7463, -73.9913),
+          zoom: 11,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(mapCanvas, mapOptions)
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+  </script>
+-->
 </head>
 <body ng-controller="appCtrl">
   <!--[if lt IE 7]>
@@ -56,6 +71,9 @@
     </div>
   </div>
   -->
+  <!--
+  <div id="map"></div>
+-->
   <div ng-controller="MainCtrl as ctl" ng-cloak>
     <div ui-view="state"></div>
   </div>
