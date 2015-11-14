@@ -3,19 +3,8 @@
 	  	<div ng-repeat="narration in ctl.ne.narrations">
 	  		<div class="row">
       			<div class="wls-narration-row" data-ng-click="ctl.fetchNarration(narration._id)">
-			        	<div ng-switch on="narration.category" class="u-pull-left">
-				          <div ng-switch-when="metro">
-				            <i class="fa fa-building-o fa-lg wls-row-icon"></i>
-				          </div>
-				          <div ng-switch-when="business">
-				            <i class="fa fa-bar-chart fa-lg wls-row-icon"></i>
-				          </div>
-				          <div ng-switch-when="books">
-				            <i class="fa fa-book fa-lg wls-row-icon"></i>
-				          </div>
-				          <div ng-switch-when="ideas">
-				            <i class="fa fa-lightbulb-o fa-lg wls-row-icon"></i>
-				          </div>
+			        	<div class="u-pull-left">
+			        		<img src="images/ebwhite.jpg">
 		        		</div>
 		        		<div ng-bind="narration.title" class="u-pull-right"></div>
 	        	</div><!-- wls-narration-row -->
