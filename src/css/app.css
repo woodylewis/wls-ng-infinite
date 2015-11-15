@@ -8,7 +8,7 @@ a {
   cursor: pointer;
 }
 .home-link {
-  color: #4173dd;
+  color: #000000;
   background-color: #ffffff;
 }
 header {
@@ -70,21 +70,26 @@ img {
   clear: both;
 }
 .wls-narration-row {
-  color: #ffffff;
-  background-color: #4173dd;
-  opacity: 0.8;
+  color: #000000;
+  background-color: #ffffff;
+  opacity: 1.0;
   font-size: 125%;
   font-weight: normal;
   max-width: 80%;
   height: 8em;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 1em;
+  margin-top: 2em;
   margin-bottom: 0;
-  -moz-border-radius: .6em;
-  -webkit-border-radius: .6em;
-  border-radius: .6em;
-  border: .2em solid grey;
+  /*
+    -moz-border-radius:.6em;
+    -webkit-border-radius:.6em;
+    border-radius:.6em;
+    */
+  border-top: .1em solid grey;
+  border-left: .1em solid grey;
+  border-right: .1em solid grey;
+  border-bottom: .4em solid grey;
   padding: .2em .5em 0 .5em;
   z-index: -1;
 }
