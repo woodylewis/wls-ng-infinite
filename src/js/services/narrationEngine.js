@@ -7,8 +7,10 @@ angular.module('gothamlane.narrationEngine', [])
     this.narrations = [];
     this.busy = false;
     this.id = 'n';
-    this.narrationPageUrl = 'http://gothamlane.net:7100/narration-page/';
-    this.narrationReferralUrl = 'http://gothamlane.net:7100/narration/';
+    //this.narrationPageUrl = 'http://gothamlane.net:7100/narration-page/';
+    //this.narrationReferralUrl = 'http://gothamlane.net:7100/narration/';
+    this.narrationPageUrl = 'http://localhost:7100/narration-page/';
+    this.narrationReferralUrl = 'http://localhost:7100/narration/';
   };
 
   NarrationEngine.prototype.nextNarrations = function() {

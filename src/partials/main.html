@@ -1,4 +1,10 @@
 <div class="container">
+	<div class="row" ng-repeat="m in ctl.mock">
+		<div ng-bind-html="m"></div>
+	</div>
+</div>
+
+<div class="container">
 	<div infinite-scroll='ctl.ne.nextNarrations()' infinite-scroll-disabled='busy' infinite-scroll-distance='1'>
 	  	<div ng-repeat="narration in ctl.ne.narrations">
 	  		<div class="row">
